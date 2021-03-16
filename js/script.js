@@ -1,28 +1,58 @@
-var arrayOrdered = [];
-var arrayShuffled = [];
+var level = parseInt(prompt('Seleziona la difficoltá'));
 
-// array che contiene tutti i numeri da 1 a 100
-for (var i = 1; i <= 100; i++){
-    arrayOrdered.push(i)
-}
 
-console.log('Array ordinato: ' + arrayOrdered);
+// Funzione "picker" genera dei numeri casuali in base al grado di difficoltá
 
-var n = arrayOrdered.length;
+function picker(numPicked, limit){
+    
+    var array = [];
 
-while (n && arrayShuffled.length < 16){
+    while (array.length != numPicked){
 
-    // creazione di un indice a caso
-    var randomNum = Math.floor(Math.random() * arrayOrdered.length);
+        var numRandom = Math.floor(Math.random() * limit + 1);
 
-    // se il numero che corrisponde a quell'indice si trova in array lo pusho in arrayShuffled
-    if (randomNum in arrayOrdered){
-
-        arrayShuffled.push(arrayOrdered[randomNum]);
-        delete arrayOrdered[randomNum];
-        n--;
+        if (!array.includes(numRandom)){
+        
+            array.push(numRandom);
+        }
     }
 
+    return array;
 }
 
-console.log('Array mescolato: ' + arrayShuffled, arrayShuffled.length);
+var arrayBot = picker(16, level);
+console.log(arrayBot);
+
+
+// Funzione "userNumbers" chiede all'utente il livello di difficoltá e i numeri da inserire
+
+function userNumbers(limit){
+
+    var difference = limit - arrayBot.length;
+    var array = [];
+
+    while (array.length != difference){
+
+        var numUser = parseInt(prompt('Inserisci un numero tra 1 e ' + limit));
+
+        console.log(numUser);
+
+        if (!array.includes(numUser)){
+            array.push(numUser);
+
+        } else {
+            alert('Hai giá inserito questo numero');
+
+        }
+
+        if (arrayBot.includes(numUser)){
+
+            console.log('hai perso');
+            break;
+        }
+    }
+
+    return array
+}
+
+var arrayUser = userNumbers(level);
