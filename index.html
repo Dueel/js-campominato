@@ -11,26 +11,46 @@
             display: flex;
             height: 100vh;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
-            /* background-color:thistle; */
             background-color: mistyrose;
+
+            font-family: sans-serif;
         }
 
         #button{
             padding: 15px 30px;
             border-radius: 10px;
-            border: 3px solid yellowgreen;
+            border: 1px solid SeaGreen;
             background-color: transparent;
 
             font-size: 20px;
-            font-weight: bold;
-            color: yellowgreen;
+            font-weight: 100;
+            color: SeaGreen;
             cursor: pointer;
+        }
+
+        body>div{
+            display: flex;
+            width: 500px;
+            justify-content: space-between;
+            padding: 50px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <input type="button" value="Click me" id="button">
+    <input type="button" value="START" id="button">
     <script src="js/script.js"></script>
 </body>
 </html>
+
+<!-- - Generare 16 numeri diversi tra loro
+
+- Chiedere all'utente di inserire 84 numeri diversi tra loro
+
+- Controllare che il numero che l'utente inserisce volta per volta non sia presente tra i 16 generati per il computer
+
+- Se nessuno dei numeri inseriti dall'utente corrisponde ai numeri del computer, l'utente ha vinto
+
+- Stampare punteggio utente -->
